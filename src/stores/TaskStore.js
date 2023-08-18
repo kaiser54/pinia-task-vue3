@@ -22,7 +22,7 @@ export const useTaskStore = defineStore("taskStore", {
   actions: {
     async getTasks() {
       this.loading = true;
-      const res = await fetch("https://my-json-server.typicode.com/kaiser54/pinia-task-vue-3/tasks");
+      const res = await fetch("https://my-json-server.typicode.com/kaiser54/pinia-task-vue3/tasks");
       const data = await res.json();
       this.tasks = data;
       this.loading = false;
@@ -30,7 +30,7 @@ export const useTaskStore = defineStore("taskStore", {
     async addTask(task) {
       this.tasks.push(task);
 
-      const res = await fetch("https://my-json-server.typicode.com/kaiser54/pinia-task-vue-3/tasks", {
+      const res = await fetch("https://my-json-server.typicode.com/kaiser54/pinia-task-vue3/tasks", {
         method: "POST",
         body: JSON.stringify(task),
         headers: {
@@ -48,7 +48,7 @@ export const useTaskStore = defineStore("taskStore", {
         return t.id !== id;
       });
 
-      const res = await fetch("https://my-json-server.typicode.com/kaiser54/pinia-task-vue-3/tasks" + id, {
+      const res = await fetch("https://my-json-server.typicode.com/kaiser54/pinia-task-vue3/tasks" + id, {
         method: "DELETE",
       });
 
@@ -62,7 +62,7 @@ export const useTaskStore = defineStore("taskStore", {
 
       task.isFav = !task.isFav;
 
-      const res = await fetch("https://my-json-server.typicode.com/kaiser54/pinia-task-vue-3/tasks" + id, {
+      const res = await fetch("https://my-json-server.typicode.com/kaiser54/pinia-task-vue3/tasks" + id, {
         method: "PATCH",
         body: JSON.stringify({ isFav: task.isFav }),
         headers: {
